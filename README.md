@@ -52,6 +52,11 @@ Example using a base translation:
 phraseapp.download({base: 'en'}).pipe(gulp.dest('./locales'));
 ```
 
+Example using a list of languages to download
+```js
+phraseapp.download({downloadOnly: ['en', 'de']}).pipe(gulp.dest('./locales'));
+```
+
 #### Arguments
 
 - __accessToken__ the access token used by the Phraseapp API to authenticate
@@ -59,6 +64,7 @@ phraseapp.download({base: 'en'}).pipe(gulp.dest('./locales'));
 - __base__ (optional) if you specify this, missing keys in translation files will be
 filled with the translation of the specified locale
 - __file_format__ (optional) locale file format (`nested_json` / `simple_json`). Defaults to `nested_json`.
+- __downloadOnly__ (optional) list of languages (will match against the `name` property) to download
 
 ### upload
 

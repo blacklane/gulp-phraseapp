@@ -102,6 +102,7 @@ exports.download = (options={}) ->
     # get request urls for the individual translations
     .flatMap (body) ->
       locales = JSON.parse(body.toString())
+      locales = if options.downloadOnly? then locales.filter ({ name }) -> options.downloadOnly.includes(name) else locales
       _(for locale in locales
         code: locale.code
         url: "/locales/#{locale.id}/download"
